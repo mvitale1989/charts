@@ -88,11 +88,11 @@ persistence:
   ###
   deployPostgres: true
 
-  ### If you want this chart to provision a PVC for you, enable and configure this
+  ### If you don't want persistence for the taiga media storage, disable this
   ###
-  enabled: false
-  #size: 8Gi
-  #accessMode: ReadWriteOnce
+  enabled: true
+  size: 8Gi
+  accessMode: ReadWriteOnce
   #annotations:
   #  "helm.sh/resource-policy": keep
 
@@ -117,8 +117,8 @@ postgresql:
   postgresDatabase: "taiga"
 
   persistence:
-    enabled: false
-    #size: 8Gi
+    enabled: true
+    size: 2Gi
     #annotations:
     #  "helm.sh/resource-policy": keep
 
