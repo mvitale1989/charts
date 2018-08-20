@@ -33,7 +33,7 @@ Check out the [official taiga website](https://taiga.io/) for informations on ho
 
 - Kubernetes 1.10+
 - Optionally, you can use your own pre-provisioned instance of PostgreSQL, for data storage. This chart provision a dedicated PostgreSQL database for you, by default.
-- Optionally, you configure the chart for persistence of both the taiga data and PostgreSQL provisioning, if using a dynamic PV provisioner in your cluster.
+- Optionally, you can rely on a dynamic PV provisioner, for the persistence of both the taiga and PostgreSQL data.
 
 
 ## Installing, uninstalling and configuring the Chart
@@ -95,6 +95,7 @@ Parameter | Description | Default
 `persistence.deployPostgres` | Deploy a PostgreSQL instance, along with taiga; configure with the `postgresql` parameter. **IMPORTANT**: see note on the `taiga.dbHost` parameter. | `true`
 `persistence.enabled` | Create a PVC for persistent storage of the taiga media directory. | `false`
 `persistence.size` | Size of the volume requested by the PVC. | `8Gi`
+`persistence.accessMode` | Access mode for the volume requested by the PVC. | `ReadWriteOnce`
 `persistence.annotations` | Annotations to use in the PVC of the taiga pod. | `{}`
 `persistence.storageClass` | Storage class of the PVC of the taiga pod. Use empty string for synamic provisioning. | `""`
 `persistence.existingClaim` | Name of the pre-provisioned PVC to use, for taiga persistence; setting this overrides the creation of the PVC. `persistence.enabled` must be true. | `""`

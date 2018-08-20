@@ -92,6 +92,7 @@ persistence:
   ###
   enabled: false
   #size: 8Gi
+  #accessMode: ReadWriteOnce
   #annotations:
   #  "helm.sh/resource-policy": keep
 
